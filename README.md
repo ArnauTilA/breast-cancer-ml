@@ -11,14 +11,17 @@ Welcome to the Breast Cancer Diagnosis ML Project! This project focuses on lever
 - **Model Training:** Implements Logistic Regression, Random Forest, Support Vector Classifier (SVC), and Gradient Boosting for classification tasks.
 - **Hyperparameter Tuning:** Grid Search optimizes the hyperparameters of the models to enhance predictive performance.
 
-## Getting Started
+- 
+## What You Can Find
 
 To get started, follow these steps:
 
-1. **Data Loading:** Use `load_breast_cancer_dataset()` to load the Breast Cancer Data Wisconsin dataset.
-2. **Data Preprocessing:** Apply functions like `handle_missing_values` and `handle_outliers_zscore` to clean and preprocess the data.
-3. **Data Exploration:** Visualize the dataset with `visualize_qq_plot` and perform the Shapiro-Wilk test with `shapiro_wilk_test`.
-4. **Feature Selection:** Utilize `feature_selection` to select relevant features for training models.
-5. **Model Training:** Train and evaluate models using functions like `train_logistic_regression`, `train_random_forest`, `train_support_vector_classifier`, and `train_gradient_boosting`.
+1. **Evaluation:** Explore the confusion matrix and classification report for each trained model, along with details about the preprocessed dataset.
+
+2. **Functions:** Discover two scripts containing functions related to preprocessing and those associated with training and model evaluation.
+
+3. **Models:** Access the three trained models saved in joblib format.
+
+4. **Tests:** Find the script to execute the entire process, including preprocessing, training, and evaluation.
 
 Feel free to explore and contribute to the project by running the provided functions and experimenting with different configurations.
