@@ -11,7 +11,7 @@ Welcome to the Breast Cancer Diagnosis ML Project! This project focuses on lever
 - **Model Training:** Implements Logistic Regression, Random Forest, Support Vector Classifier (SVC), and Gradient Boosting for classification tasks.
 - **Hyperparameter Tuning:** Grid Search optimizes the hyperparameters of the models to enhance predictive performance.
 
-- 
+
 ## What You Can Find
 
 To get started, follow these steps:
