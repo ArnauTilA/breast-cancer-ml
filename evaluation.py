@@ -1,7 +1,7 @@
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
-from ml_models import main as train_models_main
+from functions.ml_models import main as train_models_main
 
 def plot_confusion_matrix(y_true, y_pred, labels, title):
     cm = confusion_matrix(y_true, y_pred)
