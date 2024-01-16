@@ -8,10 +8,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
 import warnings
+import os
+
 warnings.filterwarnings("ignore")
 
 def save_model(model, model_name):
-    SAVE_DIR = "C:/Users/PORTATIL/PycharmProjects/BreastCancer/models/"
+    SAVE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "models/")
     # Save the trained model using joblib
     joblib.dump(model, SAVE_DIR+f"{model_name}.joblib")
     print(f"{model_name} model saved successfully.")
@@ -155,7 +157,7 @@ def train_gradient_boosting(x_train, y_train, x_test, y_test):
 
 
 def plot_confusion_matrix(y_true, y_pred, model_name):
-    SAVE_DIR = "C:/Users/PORTATIL/PycharmProjects/BreastCancer/evaluation/"
+    SAVE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "evaluation/")
     cm = confusion_matrix(y_true, y_pred)
     plt.figure(figsize=(8, 6))
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False)
@@ -166,7 +168,7 @@ def plot_confusion_matrix(y_true, y_pred, model_name):
     plt.close()
 
 def plot_classification_report(y_true, y_pred, model_name):
-    SAVE_DIR = "C:/Users/PORTATIL/PycharmProjects/BreastCancer/evaluation/"
+    SAVE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "evaluation/")
     cr = classification_report(y_true, y_pred, output_dict=True)
     df_cr = pd.DataFrame(cr).transpose()
     df_cr.to_csv(f'{model_name}_classification_report.csv')
@@ -178,25 +180,4 @@ def plot_classification_report(y_true, y_pred, model_name):
     plt.savefig(SAVE_DIR + f'{model_name}_classification_report.png')
     plt.close()
 
-
-def main():
-    # Load and preprocess the breast cancer dataset
-    df = preprocess_data()
-
-    # Split the data into training and testing sets
-    x_train, x_test, y_train, y_test = train_test_split(df.drop('target', axis=1), df['target'], test_size=0.3, random_state=42)
-
-    # Train and evaluate Logistic Regression model
-    print("Training and Evaluating Logistic Regression Model:")
-    train_logistic_regression(x_train, y_train, x_test, y_test)
-    print("\n" + "="*50 + "\n")
-
-    # Train and evaluate Random Forest model
-    print("Training and Evaluating Random Forest Model:")
-    train_random_forest(x_train, y_train, x_test, y_test)
-    print("\n" + "="*50 + "\n")
-
-    # Train and evaluate Gradient Boosting model
-    print("Training and Evaluating Gradient Boosting Model:")
-    train_gradient_boosting(x_train, y_train, x_test, y_test)
 

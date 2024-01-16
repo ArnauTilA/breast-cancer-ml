@@ -1,8 +1,9 @@
 # Import necessary libraries
 from functions.preprocesing import load_breast_cancer_dataset, handle_missing_values, handle_outliers_zscore, feature_selection
+import os
 
 def preprocess_data():
-    SAVE_DIR = "C:/Users/PORTATIL/PycharmProjects/BreastCancer/evaluation/"
+    SAVE_DIR =  os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "evaluation/")
     # Load breast cancer dataset
     breast_cancer_data = load_breast_cancer_dataset()
 
@@ -23,5 +24,6 @@ def preprocess_data():
     print(x_standardized.head())
 
     x_standardized.to_csv(SAVE_DIR + 'preprocessed_data.csv', index=False)
+    print(f"Saving preprocessed data in: {SAVE_DIR}")
     # Return the final DataFrame
     return x_standardized
