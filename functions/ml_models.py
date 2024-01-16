@@ -10,9 +10,6 @@ import joblib
 import warnings
 warnings.filterwarnings("ignore")
 
-# Import the preprocessing module
-from tests.tests_preprocesing import preprocess_data
-
 def save_model(model, model_name):
     SAVE_DIR = "C:/Users/PORTATIL/PycharmProjects/BreastCancer/models/"
     # Save the trained model using joblib
@@ -203,5 +200,3 @@ def main():
     print("Training and Evaluating Gradient Boosting Model:")
     train_gradient_boosting(x_train, y_train, x_test, y_test)
 
-if __name__ == "__main__":
-    main()
